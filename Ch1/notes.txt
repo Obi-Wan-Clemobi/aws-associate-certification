@@ -1,0 +1,100 @@
+Date: July 15, 2021
+Ch 1 - Introduction to AWS
+
+Cloud computing:
+- on demand delivery of IT resources and applications via the internet with pay as you go pricing
+- provides an easy way to access servers, sotrage, databases, and a broad set of application services that provide abstraction over the internet- hybrid:
+
+6 Advantages:
+- variable operational expense vs capital expense
+    - pay for what you use
+- economies of scale
+    - lower variable cost than you would get on your own
+- stop guessing capacity
+    - have the exact capacity for business needs
+    - scale up/down depending on need in a few minutes
+- increase speed and agility
+    - a click/few minutes away from new IT resources
+    - reduce cost to experiment and develop
+- focus on business differentiators
+    - focus on business priorities instead of "boilerplate" IT work of maintaining IT resources
+- go global in minutes
+    - deploy globally to provide redundancy
+    - deliver lower latency and better experiences for customers
+
+Deployment Modes:
+- all-in or hybrid
+- all-in:
+    - fully deployed in the cloud, all commponents of application running in the cloud 
+        - can be cloud native or migrated from existing infrastructure
+    - can be built on low level infrastructure or higher level services that provide abstraction
+- hybrid:
+    - connect infrastructure and applications between cloud based resources and existing resources
+    - most common to extend and grow an organization's infrastructure while cloud resources connect to internal systems
+
+AWS Fundamentals:
+- capacity exactly matches your need
+- pay for what you use
+- economies of scale -> lower costs
+- service is provided by a vendor experienced in running large scale networks
+- security and compliance
+
+Global Infrastructure
+- multiple locations worldwide of regions and availability zones
+    - region is a separate geographic area
+    - each region has multiple isolated locations known as availability zones
+    - data and resources are placed in multiple locations, but not replicated across regions unless specified
+- regions are independent and isolated from other regions for fault tolerance and stability
+- each AZ is isolated but AZ in a region are connected through low latency links
+    - placed outside of geographic problematic areas like flood planes, etc
+    - UPS for locations and back up generators to avoid single point of failure
+    - AZ are redundantly connected to multiple tier 1 transit providers 
+- HA by deploying across multiple AZ, create multisite solution (independent copy of each stack in 2+ AZ)
+
+Security and compliance
+- leverage AWS's offerings to meet security and compliance, lower operational overhead than on premise environment
+- shared security responsibilities with the organization
+- organization can secure anything it deploys on AWS, while AWS handles infra best practices and standards with unique needs of cloud in mind
+- redundant layered controls, continous validation and testing and automation to ensure underlying infra is monitored and protected 24/7
+    - consistent application of security controls and monitor across all environments
+- customers are responsible for setting up their environment in a secure and controlled manner
+- customers need to maintain adequate governance over IT control environment
+- audit friendly service features with applicable compliance or audit standards
+- SOC, ISAE 3402, SOC 2, SOC 3 standards
+- FISMA, DIACAP, FedRAMP
+- PCI DSS level 1
+- ISO 9001, ISO 27001, ISO 27018
+
+AWS Cloud Computing Platform
+- Access using AWS CLI, SDK, Management Console
+    - Management Console: web interface
+    - CLI: unified tool used to manage AWS Cloud services
+    - SDK: provide APIs that interacts with web services that make up AWS platform
+        - support for many different languages and platforms
+
+Compute and Network services
+Amazon Elastic Compute Cloud (EC2)
+- web service that provides resizable compute capacity in the cloud
+- can choose from a variety of OS and resource configs (memory, CPU, storage, etc)
+- configurable but maintain complete control
+
+AWS Lambda
+- 0 administration compute platform with fine grained pricing structure
+- backend
+- runs on EC2s across AZs in a region
+
+Auto Scaling
+- allow capacity up or down automatically according conditions defined for a particular workload
+- help maintain application availability and ensure the desired # of EC2 are running
+- allows resources to scale in and out to match dynamic workloads
+- well suited for stable demand patterns and to applications that experience hourly, daily, weekly variability in usage
+
+Elastic Load Balancing
+- distributes incoming application traffic across multi EC2 instances
+- enable greater levels of fault tolerance and load balancing
+
+Elastic Beanstalk
+- fastest and simplest awy to get a web app up and running
+- upload application code, service will handle details such as resource provisioning, load balancing, auto scaling and monitoring
+- orgs retain full control over resources and can access underlying resources at any time
+
