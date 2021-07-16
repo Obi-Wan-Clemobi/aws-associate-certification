@@ -98,3 +98,161 @@ Elastic Beanstalk
 - upload application code, service will handle details such as resource provisioning, load balancing, auto scaling and monitoring
 - orgs retain full control over resources and can access underlying resources at any time
 
+VPC
+- allow orgs to provision a logically isolated section of AWS Cloud where they can launch AWS resources in a virtual network that they define
+- complete control over env, including selection of IP range, creation of subnets, config of routing tables and network gateways
+- extend their corp data center to AWS by using VPN or dedicated circuits (AWS Direct Connect)
+
+Direct Connect
+- establish dedicated network connection from DC to AWS
+- private connectivity
+- in many cases reduce cost, increase bandwidth throughput and provide a more consistent network experience than internet based VPN connections
+
+Route 53
+- HA scalable DNS web service
+- reliable and cost effective way to route end users to applications
+- serves as domain registrar (purchase and manage domains directly from AWS)
+
+Storage and Content Delivery
+S3
+- highly durable and scalable object storage that handles virtually unlimited amounts of data and large number of concurrent users
+- can store almost anything and access using HTTP based protocols
+- can be used as backup/recovery, nearline archive, big data analysis, DR, hosting static cloud apps and content distribution
+
+Glacier
+- secure, durable, low cost storage service for data archiving and long term backup
+- store large/small amount of data at very low cost per GB per month
+- infrequently accesses where retrieval time of several hours is suitable
+- S3 integrates closely with Glacier
+
+Elastic Block Store (EBS)
+- persistent block-level storage volumes for use with EC2 instances
+- each EBS volume is auto replicated within AZ to protect from component failures, HA, and durability
+- consistent and low latency
+
+Storage gateways
+- service connecting an on premise software appliance with cloud based storage to provide seamless and secure integration
+- industry standard storage protocols
+- low latency by caching frequently accessed data on premise while storing all data encrypted in S3 or Glacier
+
+CloudFront
+- content delivery service
+- distribute content to users across the world with low latency, high data transfer speeds and no minimum usage committments
+- can be used to delivery static/dyanmic content, streaming, interactive using global network or edge locations
+- requests are auto routed to the nearest edge location
+
+Database services
+Amazon Relational Database Service (RDS)
+- fully managed RDS with support for many popular open source and commerical DB engines
+- cost effeicent service to launch secure, HA, fault tolerant production ready DB in minutes
+- RDS handles admin, backups, patches, monitoring, scaling and replication
+
+DynamoDB
+- nosql
+- consistent single digit milisecond latency at any scale
+- document and key/value data models
+
+Redshift
+- fast, fully managed, petabyte scale data warehouse service
+- standard SQL interface
+- columnar storage technology improves I/O efficiency and parallelizing queries across multiple nodes
+- automation for common admin tasks (provisioning, configuring, monitoring)
+
+ElastiCache
+- in memory cache
+- fast managed, in memory cache instead of disk based DB
+- memcached and Redis
+
+Management Tools
+CloudWatch
+- monitoring service for AWS Cloud resources and applications running on AWS
+- collect and track metrics, collect and monitor logs and set alarms
+- gain system wide visibility into resource utilization, application performance, and operational health
+
+CloudFormation
+- a way to create/manage a collection of related AWS resources, provisioning and updating them in an orderly and predictable fashion
+- JSON based template language that can describe AWS resources that are ncessary for a workload
+- submit template to CloudFormation and service will provision and configure resources as described
+
+CloudTrail
+- records AWS API calls for an account and delivers logs files for audit and review
+    - identity of the API caller, time of the call, source IP, request params, response elements returned by the service
+
+AWS Config
+- fully managed service that provides organizations with an AWS resource inventory, configuration history and configuration change notifications to enable security and governance
+- discover existing AWS resources, export inventory with all config details and determine how it was configured at any point in time 
+    - enables compliance auditing, security analysis, change tracking and troubleshooting
+
+Security and identity
+ Identity and Access Management (IAM)
+- securely contorl access to AWS services and resources for users
+- create/manage AWS users and groups using permissions to allow/deny access
+
+Key Management Service (KMS)
+- managed service that makes it easy to create and control encryption keys used to encrypt data and uses Hardware Security Modules (HSMs) to protect the security of keys
+- integrated with several other services to protecte data stored with these services
+
+AWS Directory Service
+- set up and run MS Active Directory on AWS or connect with existing on prem MS Active Directory
+- can use it to manage users and groups, provide SSO apps and service, create and apply group policies, domain job EC2 and simplify deployment and management of cloud based workloads
+
+AWS Certificate Manager
+- lets orgs provision, manage, deploy SSL/TLS certificates for us with AWS services
+- request a cert, deploy it on AWS resource such as ELB or CloudFront and let Certificate Manager handle renewals
+
+AWS Web Application Firewall (WAF)
+- protect web apps from common attacks and exploits that could affect availability, compromise security or consume excess resources
+- gives org control over which traffic to allow or block by defining custom web security rules
+
+Applciation services
+- managed services to use with applications
+
+API Gateway
+- fully managed service to create, publish, maintain, monitor, secure APIs
+- acts as front door for applications to access data, business logic or functionality from backend services
+    - EC2, lambda, or any web app
+- handles accepting and processing up to hundreds of thousands of concurrent API calls
+    - traffic management, authorization and access control, monitoring and API version management
+
+Amazon Elastic Transcoder
+- media transcoding in the cloud
+
+Amazon Simple Notification Service (SNS)
+- coordinates and manages delivery and sending of messages to recipients
+- pub/sub clients (producer/consumers)
+    - publishers communication asynchronously with subscribers by producing and sending a message to a topic
+        - logical access point and communication channel
+    - subscribers consume or receive the message or notification over one of the supported protocols when they subscribe to the topic
+
+Amazon Simple Email Service (SES)
+- use to send transactional email, marketing messages, etc
+- can receive messages and deliver them to S3, call custom code via lambda or publish notifications to SNS
+
+Amazon Simple Workflow Service (SWF)
+- build, run, scale background jobs that have parallel or sequential steps
+- fully managed state tracker and task coordinator
+- for tasks taking more 500 ms to complete, it is important to track state of processing and to have ability to recover or retry a failed task
+
+SQS
+- fully managed queuing service
+- decoupole components of a cloud application
+- transmit any volume of data at any throughput without losing messages or requiring other services to be available
+
+Exam Essentials
+Understand the global infrastructure
+    - multiple locations composed of regions and AZ
+    - each region is located in separate geographic areas
+Understand regions
+    - physical geographic locations consists of a cluster of data centers
+    - regions are completely independent and designed to be completely isoalted from other regions
+        - fault tolerance
+        - resources are not replicated across regions unless specified
+Understand AZ
+    - one or more data center within a region, isolated from failures from other AZ
+    - provides inexpensive, low latency netowrk connectivity to other zones in the same region
+    - prevent single point of failure when resources are placed in multiple AZs
+
+Understand the hybrid deployment model
+    - pattern providing connectivity for infra and apps between cloud based resources and existing resources that are not in the cloud
+
+
